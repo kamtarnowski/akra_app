@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+ruby '2.2.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
@@ -24,6 +25,11 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0', require: false, group: :doc
 gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
+gem 'paperclip'
+gem 'aws-sdk'
+gem 'rails_12factor', group: :production
+gem 'blueimp-gallery'
+gem 'faker'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

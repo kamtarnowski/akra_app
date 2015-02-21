@@ -13,4 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require blueimp-gallery-all
+//= require bootstrap-sprockets
 //= require_tree .
