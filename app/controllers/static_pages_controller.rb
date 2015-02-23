@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   def table
-    @books = Book.all
+    @books = Book.page params[:page]
   end
 
   def mobile
