@@ -11,29 +11,54 @@
       <ol class="indicator"></ol>
     </div>
 
-    <table class="table table-hover table-responsive table-bordered table-striped">
+    <div id="links">
+    <table class="table table-hover table-responsive table-bordered">
+
           <tr>
             <th>Okładka</th>
             <th>Tytuł</th>
             <th>Autorzy</th>
             <th>Stan</th>
-              </tr>
+          </tr>
+
           <% @books.each do |book| %>
           <tr>
-            <td><div id="links" class="links"><%= book.cover %></td>
-          </tr>
-          <tr>
-            <%= book.title %>
-          </tr>
-          <tr>
-            <%= book.author %>
-          </tr>
-          <tr>
-            <%= book.state %>
+            <td><a href="<%= book.cover.url %>" title="<%= book.title %>" data-gallery>
+              <img src="<%= book.cover.url(:thumb) %>" alt="<%= book.title %>">
+            </a>
+            </td>
+            <td><em><%= book.title %></em></td>
+            <td><%= book.author %></td>
+            <td><%= book.state %></td>
           </tr>
           <% end %>
+
     </table>
+    </div>
 
 
   </div>
 </div>
+
+<script>
+    /*
+    document.getElementById('links').onclick = function (event) {
+        event = event || window.event;
+        var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = {index: link, event: event},
+                links = this.getElementsByTagName('a');
+        blueimp.Gallery(links, options);
+    };
+    */
+    $(".links table tr td:first-child a").onclick = function (event) {
+        event = event || window.event;
+        alert("It works, somehow");
+        var target = event.target || event.srcElement,
+                link = target.src ? target.parentNode : target,
+                options = {index: link, event: event},
+                links = this.getElementsByTagName('a');
+
+        blueimp.Gallery(this, options);
+    };
+</script>

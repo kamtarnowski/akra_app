@@ -33,6 +33,6 @@ states = [ 'brak', 'przeczytana', 'do przeczytania', 'nie interesuje mnie' ]
 
 201.times do
   Book.create(cover: File.open("#{Rails.root}/public/books/#{books.sample}"), title: Faker::Name.title, author: Faker::App.author, state: states.sample)
-  end
+
 
 end
