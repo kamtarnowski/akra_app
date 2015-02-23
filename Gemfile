@@ -32,6 +32,9 @@ gem 'blueimp-gallery'
 gem 'faker'
 gem 'foreman'
 gem 'kaminari'
+gem 'ajax_pagination'
+gem 'jquery-historyjs'
+gem 'bootstrap-kaminari-views'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
