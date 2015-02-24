@@ -15,9 +15,9 @@
       <th>Stan</th>
     </tr>
 
-
     <%= ajax_loadzone do %>
         <% @books.each do |book| %>
+            <%= simple_form_for book do |f| %>
             <tr>
               <td><a href="<%= book.cover.url %>" title="<%= book.title %>" data-gallery>
                 <img src="<%= book.cover.url(:thumb) %>" alt="<%= book.title %>" style="margin-left: 10px">
@@ -25,11 +25,18 @@
               </td>
               <td><em><%= book.title %></em></td>
               <td><%= book.author %></td>
-              <td><%= book.state %></td>
+
+              <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+
+              <%= f.button :submit %>
+
             </tr>
+
+            <% end %>
         <% end %>
     <% end %>
   </table>
+
 </div>
 
 <div style='margin-left: 20px'>
@@ -37,3 +44,6 @@
     <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
     <% end %>
 </div>
+
+<!-- , as: :select, input_html: { value: 'brak', value: 'przeczytana', value: 'do przeczytania', value: 'nie interesuje mnie' }
+--!>

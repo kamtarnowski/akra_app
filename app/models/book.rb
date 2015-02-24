@@ -11,4 +11,6 @@ class Book < ActiveRecord::Base
   validates :state,
             :inclusion  => { :in => [ 'brak', 'przeczytana', 'do przeczytania', 'nie interesuje mnie' ] }
   default_scope -> { order('created_at DESC') }
+
+
 end
