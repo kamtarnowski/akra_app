@@ -4,46 +4,151 @@
   <% end %>
 </div>
 
-<div id="links">
-  <table class="table table-hover table-responsive table-bordered">
-
-
-    <tr>
-      <th>Okładka</th>
-      <th>Tytuł</th>
-      <th>Autorzy</th>
-      <th>Stan</th>
-    </tr>
-
+    <% num = 1 %>
     <%= ajax_loadzone do %>
         <% @books.each do |book| %>
             <%= simple_form_for book do |f| %>
-            <tr>
-              <td><a href="<%= book.cover.url %>" title="<%= book.title %>" data-gallery>
-                <img src="<%= book.cover.url(:thumb) %>" alt="<%= book.title %>" style="margin-left: 10px">
-              </a>
-              </td>
-              <td><em><%= book.title %></em></td>
-              <td><%= book.author %></td>
+            <% if num == 1 %>
+                <% if @books.length == 1 %>
 
-              <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+                    <div id="links">
+                      <table class="table table-hover table-responsive table-bordered">
 
-              <%= f.button :submit %>
+                        <tr>
+                          <th>Okładka</th>
+                          <th>Tytuł</th>
+                          <th>Autorzy</th>
+                          <th>Stan</th>
+                        </tr>
 
-            </tr>
+                        <tr>
+                          <td><a href="<%= book.cover.url %>" title="<%= book.title %>" data-gallery>
+                            <img src="<%= book.cover.url(:thumb) %>" alt="<%= book.title %>" style="margin-left: 10px" class="img-rounded">
+                          </a>
+                          </td>
+                          <td><em><%= book.title %></em></td>
+                          <td><%= book.author %></td>
 
+                          <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+
+                      </table>
+                    </div>
+
+                    <div class="row">
+
+                      <div class="col-sm-8">
+
+                        <div style='margin-left: 20px;  position: relative; top: -15px'>
+                          <%= ajax_links :section_id => "page" do %>
+                              <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
+                          <% end %>
+                        </div>
+                      </div>
+
+                      <div class="col-sm-2 col-sm-offset-2">
+
+                        <div style="float: right; margin-right: 20px">
+                          <%= f.button :submit, 'Zapisz' %>
+                        </div>
+
+                      </div>
+
+                    </div>
+
+                <% elsif @books.length == 2 %>
+
+                          <%= puts 'PIERWSZY' %>
+                <%= puts "#{@books.length}" %>
+
+                    <div id="links">
+                      <table class="table table-hover table-responsive table-bordered">
+
+                        <tr>
+                          <th>Okładka</th>
+                          <th>Tytuł</th>
+                          <th>Autorzy</th>
+                          <th>Stan</th>
+                        </tr>
+
+                        <tr>
+                          <td><a href="<%= book.cover.url %>" title="<%= book.title %>" data-gallery>
+                            <img src="<%= book.cover.url(:thumb) %>" alt="<%= book.title %>" style="margin-left: 10px" class="img-rounded">
+                          </a>
+                          </td>
+                          <td><em><%= book.title %></em></td>
+                          <td><%= book.author %></td>
+
+                          <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+
+                        <% num += 1 %>
+
+                <% else %>
+
+
+
+                <% end %>
+
+
+            <% elsif num == @books.length %>
+
+                <%= puts 'DRUGI' %>
+
+                    <tr>
+                      <td><a href="<%= book.cover.url %>" title="<%= book.title %>" data-gallery>
+                        <img src="<%= book.cover.url(:thumb) %>" alt="<%= book.title %>" style="margin-left: 10px" class="img-rounded">
+                      </a>
+                      </td>
+                      <td><em><%= book.title %></em></td>
+                      <td><%= book.author %></td>
+
+                      <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+
+                    </tr>
+
+                    </table>
+                  </div>
+
+                <div class="row">
+                    <div class="col-sm-8">
+
+                      <div style='margin-left: 20px;  position: relative; top: -15px'>
+                        <%= ajax_links :section_id => "page" do %>
+                            <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
+                        <% end %>
+                      </div>
+                    </div>
+
+                    <div class="col-sm-2 col-sm-offset-2">
+
+                      <div style="float: right; margin-right: 20px">
+                            <%= f.button :submit, 'Zapisz' %>
+                      </div>
+
+                    </div>
+                </div>
+
+
+                <% else %>
+
+                <%= puts 'TRZECI' %>
+
+                <tr>
+                  <td><a href="<%= book.cover.url %>" title="<%= book.title %>" data-gallery>
+                    <img src="<%= book.cover.url(:thumb) %>" alt="<%= book.title %>" style="margin-left: 10px" class="img-rounded">
+                  </a>
+                  </td>
+                  <td><em><%= book.title %></em></td>
+                  <td><%= book.author %></td>
+
+                  <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+
+                </tr>
+
+                <% num += 1 %>
+
+                <% end %>
             <% end %>
         <% end %>
     <% end %>
-  </table>
 
-</div>
 
-<div style='margin-left: 20px'>
-    <%= ajax_links :section_id => "page" do %>
-    <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
-    <% end %>
-</div>
-
-<!-- , as: :select, input_html: { value: 'brak', value: 'przeczytana', value: 'do przeczytania', value: 'nie interesuje mnie' }
---!>
