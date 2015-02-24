@@ -14,6 +14,15 @@
   </div>
 </div>
 
+
+
+
+<div style="display: inline-block; float: right; margin: 20px">
+  Ilość wyników:
+  <%= select_tag :per_page, options_for_select([10,20,50], params[:per_page].to_i),
+                 :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
+</div>
+
 <%= ajax_section :id => "page", :render => "page_table" %>
 
 

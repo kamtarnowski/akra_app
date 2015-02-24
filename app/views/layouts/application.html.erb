@@ -18,6 +18,10 @@
         <%= yield %>
     </main>
 
+    <% if Rails.env.development? %>
+    <%= debug(params) %>
+    <% end %>
+
 <script>
   <% flash.each do |key, value| %>
   <%= add_gritter(value, :image => key, :title => "Komunikat:", nodom_wrap: true) %>
