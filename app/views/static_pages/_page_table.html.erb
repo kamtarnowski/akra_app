@@ -7,7 +7,7 @@
     <% num = 1 %>
     <%= ajax_loadzone do %>
         <% @books.each do |book| %>
-            <%= simple_form_for book do |f| %>
+            <%= simple_form_for book, remote: true do |f| %>
             <% if num == 1 %>
                 <% if @books.length == 1 %>
 
@@ -29,28 +29,20 @@
                           <td><em><%= book.title %></em></td>
                           <td><%= book.author %></td>
 
-                          <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+                          <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], include_blank: false, label: false %></td>
 
                       </table>
                     </div>
 
-                    <div class="row">
-                      <div class="col-sm-8">
+                    <div style='margin-left: 20px;  position: relative; top: -15px; display: inline-block'>
+                      <%= ajax_links :section_id => "page" do %>
+                          <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
+                      <% end %>
+                    </div>
 
-                        <div style='margin-left: 20px;  position: relative; top: -15px'>
-                          <%= ajax_links :section_id => "page" do %>
-                              <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
-                          <% end %>
-                        </div>
-                      </div>
 
-                      <div class="col-sm-2 col-sm-offset-2">
-
-                        <div style="float: right; margin-right: 20px">
-                          <%= f.button :submit, 'Zapisz' %>
-                        </div>
-
-                      </div>
+                    <div style="float: right; margin-right: 20px; display: inline-block">
+                      <%= f.button :submit, 'Zapisz' %>
                     </div>
 
                 <% else %>
@@ -76,7 +68,7 @@
                           <td><em><%= book.title %></em></td>
                           <td><%= book.author %></td>
 
-                          <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+                          <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], include_blank: false, label: false %></td>
 
                         <% num += 1 %>
 
@@ -95,31 +87,25 @@
                       <td><em><%= book.title %></em></td>
                       <td><%= book.author %></td>
 
-                      <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+                      <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], include_blank: false, label: false %></td>
 
                     </tr>
 
                     </table>
                   </div>
 
-                <div class="row">
-                    <div class="col-sm-8">
 
-                      <div style='margin-left: 20px;  position: relative; top: -15px'>
+                      <div style='margin-left: 20px;  position: relative; top: -15px; display: inline-block'>
                         <%= ajax_links :section_id => "page" do %>
                             <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
                         <% end %>
                       </div>
-                    </div>
 
-                    <div class="col-sm-2 col-sm-offset-2">
 
-                      <div style="float: right; margin-right: 20px">
+                      <div style="float: right; margin-right: 20px; display: inline-block">
                             <%= f.button :submit, 'Zapisz' %>
                       </div>
 
-                    </div>
-                </div>
 
 
                 <% else %>
@@ -134,7 +120,7 @@
                   <td><em><%= book.title %></em></td>
                   <td><%= book.author %></td>
 
-                  <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], label: false %></td>
+                  <td><%= f.input :state, as: :select, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], include_blank: false, label: false %></td>
 
                 </tr>
 

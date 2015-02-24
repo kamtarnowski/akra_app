@@ -15,5 +15,6 @@
 //= require turbolinks
 //= require blueimp-gallery-all
 //= require ajax_pagination
+//= require gritter
 //= require bootstrap-sprockets
 //= require_tree .
