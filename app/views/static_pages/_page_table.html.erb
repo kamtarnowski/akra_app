@@ -34,13 +34,6 @@
                       </table>
                     </div>
 
-                    <div style='margin-left: 20px;  position: relative; top: -15px; display: inline-block'>
-                      <%= ajax_links :section_id => "page" do %>
-                          <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
-                      <% end %>
-                    </div>
-
-
                     <div style="float: right; margin-right: 20px; display: inline-block">
                       <%= f.button :submit, 'Zapisz' %>
                     </div>
@@ -95,13 +88,6 @@
                   </div>
 
 
-                      <div style='margin-left: 20px;  position: relative; top: -15px; display: inline-block'>
-                        <%= ajax_links :section_id => "page" do %>
-                            <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
-                        <% end %>
-                      </div>
-
-
                       <div style="float: right; margin-right: 20px; display: inline-block">
                             <%= f.button :submit, 'Zapisz' %>
                       </div>
@@ -131,4 +117,8 @@
         <% end %>
     <% end %>
 
-
+<div style='margin-left: 20px;  position: relative; top: -15px; display: inline-block'>
+  <%= ajax_links :section_id => "page" do %>
+      <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
+  <% end %>
+</div>
