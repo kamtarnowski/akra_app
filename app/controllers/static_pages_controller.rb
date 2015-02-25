@@ -1,7 +1,6 @@
 class StaticPagesController < ApplicationController
 
   def table
-
     @per_page = params[:per_page] || 10
     @books = Book.page(params[:page]).per(@per_page)
     respond_to do |format|
