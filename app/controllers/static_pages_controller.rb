@@ -8,9 +8,9 @@ class StaticPagesController < ApplicationController
   def mobile
   end
 
-  protected
-
-  def set_content_type
-    params[:content_type] ||= "/?per_page=20"
-  end
+  # protected
+  #
+  # def set_content_type
+  #   params[:content_type] ||= "/?per_page=20"
+  # end
 end
