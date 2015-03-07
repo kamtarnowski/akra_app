@@ -36,10 +36,6 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
-    ajax_pagination (0.6.3)
-      jquery-historyjs
-      jquery-rails (>= 1.0.17)
-      rails (>= 3.0)
     arel (6.0.0)
     autoprefixer-rails (5.1.7)
       execjs
@@ -202,7 +198,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  ajax_pagination
   autoprefixer-rails
   aws-sdk (< 2.0)
   better_errors

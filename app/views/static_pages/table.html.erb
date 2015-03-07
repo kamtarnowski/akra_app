@@ -20,7 +20,7 @@
                  :onchange => "if(this.value){window.location='?per_page='+this.value;}" %>
 </div>
 
-<%= ajax_section :id => "page", :render => "page_table" %>
+<%= render 'page_table' %>
 
 
 <script>
@@ -34,5 +34,4 @@
 
         blueimp.Gallery(this, options);
     };
-    window.alert = function() {};
 </script>

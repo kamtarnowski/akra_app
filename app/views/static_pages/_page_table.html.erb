@@ -1,9 +1,6 @@
 <div style='margin-left: 20px; display: inline-block'>
-  <%= ajax_links :section_id => "page" do %>
       <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
-  <% end %>
 </div>
-
     <div id="links">
       <table class="table table-hover table-responsive table-bordered">
 
@@ -15,31 +12,18 @@
         </tr>
 
         <%= simple_form_for :books, method: :patch, url: { action: :update, controller: 'books' } do |f| %>
-            <%= ajax_loadzone do %>
 
                 <% @books.each do |book| %>
                     <%= render 'fields_books_form', book: book, f: f %>
                 <% end %>
 
-            <% end %>
-
-            <div style="float: right; margin-right: 20px; display: inline-block">
-              <%= f.button :submit, 'Zapisz' %>
-            </div>
+          </table>
+        </div>
+        <div style="float: right; margin-right: 20px; display: inline-block">
+          <%= f.button :submit, 'Zapisz' %>
+        </div>
 
         <% end %>
-
-      </table>
-    </div>
-
 <div style='margin-left: 20px;  position: relative; top: -15px; display: inline-block'>
-  <%= ajax_links :section_id => "page" do %>
       <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
-  <% end %>
 </div>
-
-<% if false %>
-<div style="float: right; margin-right: 20px; ">
-  <%= f.button :submit, 'Zapisz' %>
-</div>
-<% end %>
