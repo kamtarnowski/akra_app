@@ -31,3 +31,4 @@ bower.json
 .env
 Procfile
 public/assets/**
+generator_state.rb

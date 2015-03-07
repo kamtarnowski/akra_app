@@ -1,0 +1,13 @@
+<tr>
+  <td><a href="<%= book.cover.url %>" title="<%= book.title %>" data-gallery>
+    <img src="<%= book.cover.url(:thumb) %>" alt="<%= book.title %>" style="margin-left: 10px" class="img-rounded"></a>
+  </td>
+  <td><em><%= book.title %></em></td>
+  <td><%= book.author %></td>
+
+  <%= f.simple_fields_for book, index: book.id do |form| %>
+    <td><%= form.input :state, collection: ['brak', 'przeczytana','do przeczytania','nie interesuje mnie'], include_blank: false, label: false  %>
+    </td>
+  <% end %>
+</tr>
+

@@ -14,9 +14,6 @@
   </div>
 </div>
 
-
-
-
 <div style="display: inline-block; float: right; margin: 20px">
   Ilość wyników:
   <%= select_tag :per_page, options_for_select([10,20,50], params[:per_page].to_i),
@@ -27,16 +24,6 @@
 
 
 <script>
-    /*
-    document.getElementById('links').onclick = function (event) {
-        event = event || window.event;
-        var target = event.target || event.srcElement,
-                link = target.src ? target.parentNode : target,
-                options = {index: link, event: event},
-                links = this.getElementsByTagName('a');
-        blueimp.Gallery(links, options);
-    };
-    */
     $(".links table tr td:first-child a").onclick = function (event) {
         event = event || window.event;
         alert("It works, somehow");
@@ -49,4 +36,3 @@
     };
     window.alert = function() {};
 </script>
-
