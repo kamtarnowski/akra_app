@@ -6,9 +6,10 @@
 
         <tr>
           <th>Okładka</th>
-          <th>Tytuł</th>
-          <th>Autorzy</th>
-          <th>Stan</th>
+          <th><%= params.has_value?('title') ? (link_to 'Tytuł', root_path(:find_by => 'title_rev', page: params[:page], per_page: params[:per_page])) : (link_to 'Tytuł', root_path(:find_by => 'title', page: params[:page], per_page: params[:per_page]) ) %></th>
+          <th><%= params.has_value?('author') ? (link_to 'Autor', root_path(:find_by => 'author_rev', page: params[:page], per_page: params[:per_page])) : (link_to 'Autor', root_path(:find_by => 'author', page: params[:page], per_page: params[:per_page]) ) %></th>
+          <th><%= params.has_value?('state') ? (link_to 'Stan', root_path(:find_by => 'state_rev', page: params[:page], per_page: params[:per_page])) : (link_to 'Stan', root_path(:find_by => 'state', page: params[:page], per_page: params[:per_page]) ) %></th>
+
         </tr>
 
         <%= simple_form_for :books, method: :patch, url: { action: :update, controller: 'books' } do |f| %>
