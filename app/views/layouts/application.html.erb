@@ -18,6 +18,10 @@
         <%= yield %>
     </main>
 
+    <footer>
+      <%= render 'layouts/footer' %>
+    </footer>
+
     <% if Rails.env.development? %>
     <%= debug(params) %>
     <% end %>
