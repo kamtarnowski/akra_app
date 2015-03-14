@@ -9,7 +9,6 @@
   <%= render 'layouts/shim' %>
 </head>
 <body>
-
     <header>
       <%= render 'layouts/header' %>
     </header>
@@ -21,7 +20,6 @@
     <footer>
       <%= render 'layouts/footer' %>
     </footer>
-
 <script>
   <% flash.each do |key, value| %>
   <%= add_gritter(value, :image => key, :title => "Komunikat:", nodom_wrap: true) %>

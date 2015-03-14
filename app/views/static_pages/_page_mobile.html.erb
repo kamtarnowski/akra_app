@@ -2,9 +2,7 @@
   <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
 </div>
 <div id="links">
-
   <%= simple_form_for :books, method: :patch, url: { action: :update, controller: 'books' } do |f| %>
-
     <%= render 'mobile_book_form', f: f %>
 
     </div>
@@ -13,7 +11,6 @@
     </div>
 
   <% end %>
-
 <div style='margin-left: 20px;  position: relative; top: -15px; display: inline-block'>
   <%= paginate @books, :theme => 'twitter-bootstrap-3', :window => 2 %>
 </div>
