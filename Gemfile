@@ -36,6 +36,7 @@ gem 'jquery-historyjs'
 gem 'bootstrap-kaminari-views'
 gem 'simple_form'
 gem 'gritter'
+gem 'font-awesome-rails'
 
 gem "better_errors", group: :development
 
