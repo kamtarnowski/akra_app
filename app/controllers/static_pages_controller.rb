@@ -51,6 +51,9 @@ class StaticPagesController < ApplicationController
   end
 
   def mobile_search
+    @per_page = params[:per_page] || 20
 
+    @books = Book.where(title: params[:search][:inquiry]) + Book.where(author: params[:search][:inquiry])
+    @books = Kaminari.paginate_array(@books).page(params[:page]).per(@per_page)
   end
 end
